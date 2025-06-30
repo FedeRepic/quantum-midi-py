@@ -5,6 +5,8 @@ Quantum Generative MIDI
 
 This is a real-time generative MIDI sequencer powered by quantum circuits using [Qiskit](https://qiskit.org/) and [Mido](https://mido.readthedocs.io/).
 
+https://medium.com/qiskit/rothko-inspired-generative-quantum-art-6f34ca9d17cb
+
 ## What does it do?
 
 - Generates MIDI note sequences based on the output of a quantum circuit.
