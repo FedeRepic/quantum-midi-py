@@ -1,25 +1,36 @@
 # quantum-midi-py
-Quantum Generative Midi
+Quantum Generative MIDI
 
 # Quantum MIDI Sequencer
 
-Este es un secuenciador MIDI generativo en tiempo real impulsado por circuitos cuánticos utilizando [Qiskit](https://qiskit.org/) y [Mido](https://mido.readthedocs.io/).
+This is a real-time generative MIDI sequencer powered by quantum circuits using [Qiskit](https://qiskit.org/) and [Mido](https://mido.readthedocs.io/).
 
-## ¿Qué hace?
+## What does it do?
 
-- Genera secuencias de notas MIDI basadas en la salida de un circuito cuántico.
-- Utiliza múltiples **qubits y puertas aleatorias** (`h`, `x`, `rz`, `swap`, `cx`) para formar combinaciones únicas.
-- Ejecuta múltiples `shots` para crear **acordes o capas simultáneas**.
-- Incorpora **LFOs cuánticos** para:
-  - Modulación de `velocity` (intensidad) en tiempo real.
-  - Variación suave de la duración de cada nota con un **LFO acumulativo**.
+- Generates MIDI note sequences based on the output of a quantum circuit.
+- Uses multiple **qubits and random gates** (`h`, `x`, `rz`, `swap`, `cx`) to create unique combinations.
+- Runs multiple `shots` per execution to produce **chords or simultaneous layers**.
+- Incorporates **quantum LFOs** for:
+  - Real-time modulation of `velocity` (note intensity).
+  - Smooth variation of note duration via an **accumulative LFO**.
 
-## Requisitos
+## Quantum Circuit Features
+
+- Each qubit receives a random gate (`h`, `x`, or `rz`) on each cycle.
+- Random swaps occur between pairs of qubits.
+- Some fixed entanglements are added (`cx(0,1)` and `cx(1,7)`) for deeper interaction.
+- Measurement results are converted directly into MIDI notes.
+
+## Quantum Modulation
+
+- `get_quantum_lfo()` produces smoothly distributed random values using multiple qubits.
+- `QuantumSmoothLFO` simulates a slow oscillating LFO to vary note duration dynamically.
+
+## Requirements
 
 - Python 3.8+
-- loopMIDI (u otro puerto MIDI virtual)
-- Instalación de dependencias:
+- loopMIDI (or any virtual MIDI port)
+- Dependencies:
 
 ```bash
 pip install qiskit qiskit-aer mido python-rtmidi
-
